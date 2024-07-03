@@ -33,12 +33,12 @@ public:
         auto first = head, second = head;
         int index = 1;
 
-        while(first != nullptr && index <= n) {
+        while(first != nullptr && index < n) {
             first = first -> next;
             index++;
         }
 
-        while(first != nullptr) {
+        while(first -> next != nullptr) {
             first = first -> next;
             second = second -> next;
         }
