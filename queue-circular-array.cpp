@@ -2,11 +2,12 @@
 using namespace std;
 
 class Queue {
-public:
+private:
     int rear, front;
     int *elements;
     int capacity, size;
 
+public:
     Queue() : rear(0), front(0), capacity(5), size(0) {
         elements = new int[capacity];
     }
@@ -23,6 +24,10 @@ public:
         elements[rear] = value;
         rear = (rear + 1) % capacity;
         size++;
+    }
+
+    int getSize() {
+        return size;
     }
 
     void display() {
@@ -79,7 +84,7 @@ int main() {
 
     cout << "\n\n";
 
-    while (q.size) {
+    while (q.getSize() > 0) {
         cout << q.getCurrent() << " ";
         q.pop();
     }
