@@ -29,6 +29,22 @@ public:
         }
     }
 
+    void getParity() {
+        auto current = head;
+
+        while(current -> next != nullptr) {
+            current = current -> next;
+            if(current -> next != nullptr) {
+                current = current->next;
+            } else {
+                cout << "even";
+                return;
+            }
+        }
+
+        cout << "odd";
+    }
+
     void reverse() {
         Node *current = head;
         Node *previous = nullptr;
