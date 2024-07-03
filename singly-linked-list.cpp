@@ -29,6 +29,21 @@ public:
         }
     }
 
+    void rotate() {
+        Node *current = head;
+        Node *previous = nullptr;
+        Node *next = nullptr;
+
+        while (current != nullptr) {
+            next = current -> next;
+            current -> next = previous;
+            previous = current;
+            current = next;
+        }
+
+        head = previous;
+    }
+
     int getNthNode(int n) {
         auto first = head, second = head;
         int index = 1;
