@@ -31,9 +31,9 @@ public:
 
     int getNthNode(int n) {
         auto first = head, second = head;
-        int index = 0;
+        int index = 1;
 
-        while(first != nullptr && index != n + 1) {
+        while(first != nullptr && index <= n) {
             first = first -> next;
             index++;
         }
