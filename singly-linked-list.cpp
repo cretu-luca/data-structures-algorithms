@@ -29,7 +29,7 @@ public:
         }
     }
 
-    void rotate() {
+    void reverse() {
         Node *current = head;
         Node *previous = nullptr;
         Node *next = nullptr;
