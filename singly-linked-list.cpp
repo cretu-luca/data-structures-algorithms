@@ -29,6 +29,23 @@ public:
         }
     }
 
+    int getNthNode(int n) {
+        auto first = head, second = head;
+        int index = 0;
+
+        while(first != nullptr && index != n + 1) {
+            first = first -> next;
+            index++;
+        }
+
+        while(first != nullptr) {
+            first = first -> next;
+            second = second -> next;
+        }
+
+        return second -> info;
+    }
+
     void insertPosition(int position, int value) {
         if(position < 1) {
             cout << "invalid position\n";
