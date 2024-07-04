@@ -54,23 +54,24 @@ public:
     }
 };
 
-void heapSort(int array[10]) {
+void heapSort(int array[], int size) {
     Heap heap;
 
-    for(int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
         heap.add(array[i]);
 
-    for(int i = 0; i < 10; i++) {
-        array[9 - i] = heap.getMax();
+    for (int i = 0; i < size; i++) {
+        array[size - i - 1] = heap.getMax();
         heap.remove();
     }
 }
 
 int main() {
     int array[] = {92, 54, 23, 42, 10, 34, 100, 56, 78, 47};
-    heapSort(array);
+    int size = sizeof(array) / sizeof(array[0]);
+    heapSort(array, size);
 
-    for(int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
         cout << array[i] << " ";
 
     return 0;
