@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class LinkedListOnArray {
+class SortedLinkedListOnArray {
 public:
     int elements[20];
     int next[20];
     int firstEmpty;
     int head;
 
-    LinkedListOnArray() {
+    SortedLinkedListOnArray() {
         this -> firstEmpty = 0;
         this -> head = -1;
         this -> next[19] = -1;
@@ -83,8 +83,7 @@ public:
 };
 
 int main() {
-
-    LinkedListOnArray list;
+    SortedLinkedListOnArray list;
 
     list.add(45);
     list.add(53);
