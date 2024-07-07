@@ -54,10 +54,21 @@ public:
 class BinarySearchTreeIterator {
 public:
     Node *current;
+    BinarySearchTree bst;
 
     BinarySearchTreeIterator(BinarySearchTree bst) {
+        this -> bst = bst;
         if(bst.root != nullptr) {
             current = bst.root;
+            while(current -> left != nullptr) {
+                current = current -> left;
+            }
+        }
+    }
+
+    void first() {
+        current = this -> bst -> root;
+        if(current != nullptr) {
             while(current -> left != nullptr) {
                 current = current -> left;
             }
