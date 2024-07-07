@@ -49,6 +49,29 @@ public:
             inorder(node -> right);
         }
     }
+
+    int getNumberOfElements(Node *node) {
+        if(node != nullptr) {
+            return 1 + getNumberOfElements(node -> left) + getNumberOfElements(node -> right);
+        }
+
+        return 0;
+    }
+
+    int getHeight(Node *node) {
+        if(node != nullptr) {
+            return 1 + max(getHeight(node -> left), getHeight(node -> right));
+        }
+
+        return -1;
+    }
+
+    int getDensity() {
+        int numberOfElements = getNumberOfElements(root);
+        int height = getHeight(root);
+
+        return numberOfElements / height;
+    }
 };
 
 class BinarySearchTreeIterator {
@@ -67,7 +90,7 @@ public:
     }
 
     void first() {
-        current = this -> bst -> root;
+        current = this -> bst.root;
         if(current != nullptr) {
             while(current -> left != nullptr) {
                 current = current -> left;
@@ -114,6 +137,8 @@ int main() {
     bst.add(5);
     bst.add(7);
     bst.add(3);
+    bst.add(8);
+    bst.add(9);
 
     bst.inorder(bst.root);
     cout << "\n\n";
@@ -124,5 +149,9 @@ int main() {
         cout << iter.getCurrent() << " ";
         iter.next();
     }
-    cout << endl;
+    cout << "\n\n";
+
+    cout << "number of elements: " << bst.getNumberOfElements(bst.root) << "\n";
+    cout << "height: " << bst.getHeight(bst.root) << "\n";
+    cout << "density: " << bst.getDensity() << "\n";
 }
